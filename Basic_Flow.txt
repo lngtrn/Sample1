@@ -1,0 +1,81 @@
+*** Settings ***
+Suite Setup       Set up test    Chrome    https://dev.omenahotels.com/en/booking/
+Suite Teardown    Sleep    8
+Resource          ./first_resource.txt
+
+*** Test Cases ***
+1 Room for 2 people
+    [Tags]    1
+    find With XPath And Click    ${DRV}    //button[@type='button']
+    Sleep    1
+    find With XPath And Click    ${DRV}    //div[@id='search']/div/div/div/div/div/div/div/ul/li[10]/a/span
+    Sleep    1
+    set Date In Out    ${DRV}    1.2.2018    4.2.2018
+    Sleep    1
+    find With XPath And Click    ${DRV}    //button[@type='button']
+    Sleep    1
+    find With XPath And Click    ${DRV}    //div[@id='search']/div/div/div/div/div/div/div/ul/li[9]/a/span
+    Sleep    1
+    find With ID And Click    ${DRV}    add-room-1
+    Sleep    2
+    find With ID And Click    ${DRV}    continue
+    Sleep    2
+    find With ID And Send Key    ${DRV}    first-name    Green
+    Sleep    1
+    find With ID And Send Key    ${DRV}    last-name    Dark
+    Sleep    1
+    find With ID And Send Key    ${DRV}    email    darkgreener@colors.com
+    Sleep    1
+    find With ID And Send Key    ${DRV}    confirm-email    darkgreener@colors.com
+    Sleep    1
+    find With XPath And Click    ${DRV}    //button[@type='button']
+    Sleep    1
+    find With Link Text And Click    ${DRV}    Finland +358
+    Sleep    1
+    find With ID And Send Key    ${DRV}    mobile    342350888
+    Sleep    1
+    find With ID And Send Key    ${DRV}    address    113 Grand avenue
+    Sleep    1
+    find With ID And Send Key    ${DRV}    postal-code    113
+    Sleep    1
+    find With ID And Send Key    ${DRV}    city    Sunset
+    Sleep    1
+    find With XPath And Click    ${DRV}    //button[@class='btn dropdown-toggle btn-default' and @data-id='country']
+    Sleep    1
+    find With Link Text And Click    ${DRV}    Sweden
+    Sleep    1
+    find With ID And Send Key    ${DRV}    company    ATM Inc
+    Sleep    1
+    find With ID And Send Key    ${DRV}    reference    To be filled
+    Sleep    1
+    find With ID And Click    ${DRV}    accept-terms
+    Sleep    1
+    find With CSS And Click    ${DRV}    input.method.type-b
+    Sleep    8
+    Pass Dummy Payment Phase    ${DRV}
+    Sleep    12
+    find With XPath And Send Key    ${DRV}    //input[@name='personal-id']    111113-113Y
+    Sleep    1
+    find With XPath And Select By Index    ${DRV}    (//select[@class='form-control purpose-of-visit validation-check' and @name='purpose-of-visit'])    2
+    Sleep    1
+    find With XPath And Click    ${DRV}    //button[@class='btn btn-red btn-full-width save-guest']
+    Sleep    2
+    find With XPath And Click    ${DRV}    //button[@id='add-guest-1']
+    Sleep    2
+    find With XPath And Send Key    ${DRV}    //input[@class='form-control first-name validation-check' and @value='']    Blue
+    Sleep    1
+    find With XPath And Send Key    ${DRV}    //input[@class='form-control last-name validation-check' and @value='']    Light
+    Sleep    1
+    find With XPath And Send Key    ${DRV}    //input[@class='form-control personal-id validation-check' and @value='']    121113-113L
+    Sleep    1
+    find With XPath And Select By Index    ${DRV}    (//select[@class='form-control purpose-of-visit validation-check' and @name='purpose-of-visit'])[2]    2
+    Sleep    1
+    find With XPath And Send Key    ${DRV}    //input[@class='form-control mobile validation-check' and @value='']    +358234567113
+    Sleep    1
+    find With XPath And Send Key    ${DRV}    //input[@class='form-control email validation-check' and @value='']    mail2@x.com
+    Sleep    1
+    find With XPath And Click    ${DRV}    (//button[@class='btn btn-red btn-full-width save-guest'])[2]
+    Sleep    5
+    find With XPath And Click    ${DRV}    //button[@id='booking-confirm']
+    Sleep    3
+    find With XPath And Click    ${DRV}    //a[@class='btn btn-red btn-full-width']

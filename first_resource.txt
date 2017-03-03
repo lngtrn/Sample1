@@ -1,0 +1,25 @@
+*** Settings ***
+Library           ./FirstLib.py
+
+*** Keywords ***
+Set up test
+    [Arguments]    ${browser}    ${link}
+    ${DRV}=    selectBrowser    ${browser}
+    Set Suite Variable    ${DRV}
+    openWeb    ${DRV}    ${link}
+    maximizeWeb    ${DRV}
+    Sleep    4
+
+Pass Dummy Payment Phase
+    [Arguments]    ${driver}
+    findWithXPathAndSendKey    ${driver}    //input[@class='login' and @name='id']    123456
+    Sleep    1
+    findWithXPathAndSendKey    ${driver}    //input[@class='login' and @name='pw']    7890
+    Sleep    1
+    find With XPath And Click    ${driver}    //input[@class='Nappi' and @name='ktunn']
+    Sleep    2
+    findWithXPathAndSendKey    ${driver}    //input[@name='avainluku']    1111
+    Sleep    2
+    find With XPath And Click    ${driver}    //input[@class='Nappi' and @name='avainl']
+    Sleep    2
+    find With XPath And Click    ${driver}    //input [@id='Toiminto']
