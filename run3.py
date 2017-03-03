@@ -14,7 +14,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class Test(unittest.TestCase):
-    def setUp(self, logname="log.txt"):
+    def setUp(self, logname="logx.txt"):
         self.driver = webdriver.Chrome()
         #self.driver = webdriver.Firefox()
         sys.terminal = sys.stdout
