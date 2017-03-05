@@ -53,7 +53,7 @@ Resource          ./first_resource.txt
     find With CSS And Click    ${DRV}    input.method.type-b
     Sleep    8
     Pass Dummy Payment Phase    ${DRV}
-    Sleep    12
+    Sleep    15
     find With XPath And Send Key    ${DRV}    //input[@name='personal-id']    111113-113Y
     Sleep    1
     find With XPath And Select By Index    ${DRV}    (//select[@class='form-control purpose-of-visit validation-check' and @name='purpose-of-visit'])    2
