@@ -17,9 +17,9 @@ Pass Dummy Payment Phase
     findWithXPathAndSendKey    ${driver}    //input[@class='login' and @name='pw']    7890
     Sleep    1
     find With XPath And Click    ${driver}    //input[@class='Nappi' and @name='ktunn']
-    Sleep    2
+    Sleep    4
     findWithXPathAndSendKey    ${driver}    //input[@name='avainluku']    1111
     Sleep    2
     find With XPath And Click    ${driver}    //input[@class='Nappi' and @name='avainl']
-    Sleep    2
+    Sleep    3
     find With XPath And Click    ${driver}    //input [@id='Toiminto']
